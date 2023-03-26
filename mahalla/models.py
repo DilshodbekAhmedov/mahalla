@@ -53,6 +53,10 @@ class Citizen(models.Model):
         ("yes", "ha"),
         ("no", "yo'q"),
     )
+    PENSIONER = (
+        ('yes', 'ha'),
+        ('no', "yo'q")
+    )
     neighborhood = models.ForeignKey('Neighborhood', verbose_name="Mahallani tanlang",
                                      on_delete=models.PROTECT)
     full_name = models.CharField(verbose_name='F.I.O.', max_length=255)
@@ -92,6 +96,12 @@ class Citizen(models.Model):
         verbose_name="Ayollar daftarida bormi",
         max_length=20,
         choices=WOMANS_NOTEBOOK
+    )
+    pensioner = models.CharField(
+        verbose_name="Pensiyoner",
+        max_length=255,
+        choices=PENSIONER,
+        null=True
     )
 
     def __str__(self):

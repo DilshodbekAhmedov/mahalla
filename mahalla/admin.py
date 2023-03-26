@@ -28,7 +28,6 @@ class SectorAdmin(admin.ModelAdmin):
 
 @admin.register(Citizen)
 class CitizenAdmin(admin.ModelAdmin):
-    # form = CitizenForm
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
@@ -45,5 +44,5 @@ class CitizenAdmin(admin.ModelAdmin):
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     list_display = 'full_name', 'neighborhood', 'passport', "birthdate", 'gender',
-    list_filter = 'neighborhood', 'gender', 'address', 'disabiltiy', 'abroad', 'womens_notebook'
+    list_filter = 'neighborhood', 'gender', 'address', 'disabiltiy', 'abroad', 'womens_notebook', 'pensioner'
     search_fields = 'full_name',
